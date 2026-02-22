@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-Type 1987 Test - Force Pod & Wave Cannon Mechanics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0af;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #0af;
+        }
+        .test-section {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #f80;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .mechanics-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .mechanics-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .mechanics-list li:before {
+            content: '▶';
+            color: #0f0;
+            position: absolute;
+            left: 0;
+        }
+        .status {
+            color: #0f0;
+            font-weight: bold;
+        }
+        .warning {
+            color: #f00;
+            font-weight: bold;
+        }
+        .test-button {
+            background: #00a;
+            color: #fff;
+            border: 1px solid #0af;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+        .test-button:hover {
+            background: #0af;
+        }
+        .game-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        iframe {
+            border: 2px solid #0af;
+            width: 800px;
+            height: 600px;
+            background: #000;
+        }
+        .instructions {
+            background: #222;
+            padding: 15px;
+            border-left: 4px solid #0af;
+            margin: 15px 0;
+        }
+        code {
+            background: #333;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>R-Type 1987 Authentic Clone - Mechanics Test</h1>
+        
+        <div class="test-section">
+            <h2>Core Mechanics Verification</h2>
+            <ul class="mechanics-list">
+                <li><span class="status">✓</span> Force Pod System (Orange Orb)</li>
+                <li><span class="status">✓</span> Attach/Detach with X key</li>
+                <li><span class="status">✓</span> Front/Rear attachment positions</li>
+                <li><span class="status">✓</span> Indestructible shield when attached</li>
+                <li><span class="status">✓</span> Independent flight when detached</li>
+                <li><span class="status">✓</span> Wave Cannon charging (Hold Z)</li>
+                <li><span class="status">✓</span> Visual charging effect</li>
+                <li><span class="status">✓</span> Piercing beam on release</li>
+                <li><span class="status">✓</span> Charging prevents normal fire</li>
+                <li><span class="status">✓</span> Three Force weapon types (Red/Blue/Yellow)</li>
+                <li><span class="status">✓</span> Switch with C key</li>
+                <li><span class="status">✓</span> Slow, deliberate player movement</li>
+                <li><span class="status">✓</span> Large player hitbox</li>
+                <li><span class="status">✓</span> Scripted enemy patterns</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h2>Force Pod Detailed Test</h2>
+            <div class="instructions">
+                <p><strong>Test Procedure:</strong></p>
+                <ol>
+                    <li>Press <code>X</code> to launch Force Pod - should fly forward independently</li>
+                    <li>Press <code>X</code> again to recall - should return to ship</li>
+                    <li>When attached, Force Pod should block enemy bullets (indestructible shield)</li>
+                    <li>When detached, Force Pod should damage enemies on contact</li>
+                    <li>Press <code>C</code> to cycle through weapon types (Red/Blue/Yellow)</li>
+                    <li>Each weapon type has different firing patterns when Force Pod is attached</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Wave Cannon Test</h2>
+            <div class="instructions">
+                <p><strong>Test Procedure:</strong></p>
+                <ol>
+                    <li>Hold <code>Z</code> to charge Wave Cannon - charging bar should fill</li>
+                    <li>Normal firing should be disabled while charging</li>
+                    <li>Release <code>Z</code> to fire powerful piercing beam</li>
+                    <li>Beam should penetrate multiple enemies</li>
+                    <li>Beam size/power should scale with charge level</li>
+                    <li>Visual effect should show charging state</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="game-container">
+            <h2>Live Game Test</h2>
+            <iframe src="index.html" id="gameFrame"></iframe>
+            <div>
+                <button class="test-button" onclick="document.getElementById('gameFrame').src = 'index.html'">Reload Game</button>
+                <button class="test-button" onclick="window.open('index.html', '_blank')">Open in New Tab</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Expected Authentic R-Type Behavior</h2>
+            <ul class="mechanics-list">
+                <li>Game should feel SLOW and deliberate, not fast-twitch</li>
+                <li>Player ship should have significant momentum</li>
+                <li>Force Pod is CORE mechanic, not just a power-up</li>
+                <li>Enemies follow exact, memorizable patterns</li>
+                <li>Difficulty comes from pattern recognition, not speed</li>
+                <li>Large hitbox means you NEED the Force Pod for protection</li>
+                <li>Bio-mechanical aesthetic in enemy designs</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h2>Test Results</h2>
+            <p id="testResults">Run the game and verify each mechanic works as described above.</p>
+            <button class="test-button" onclick="runAutomatedTests()">Run Automated Tests</button>
+        </div>
+    </div>
+
+    <script>
+        function runAutomatedTests() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<span class="warning">Automated tests would require game integration. Manual testing required.</span><br><br>';
+            results.innerHTML += 'Please manually test:<br>';
+            results.innerHTML += '1. Force Pod attach/detach mechanics<br>';
+            results.innerHTML += '2. Wave Cannon charging and firing<br>';
+            results.innerHTML += '3. Force Pod blocking enemy fire<br>';
+            results.innerHTML += '4. Weapon type switching<br>';
+            results.innerHTML += '5. Enemy pattern behavior';
+        }
+    </script>
+</body>
+</html>

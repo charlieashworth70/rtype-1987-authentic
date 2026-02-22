@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-Type 1987 Authentic Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        #gameContainer {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 2px solid #0af;
+            box-shadow: 0 0 20px #0af;
+        }
+        
+        canvas {
+            display: block;
+            background: #000;
+        }
+        
+        #hud {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            text-shadow: 0 0 5px #0af;
+            z-index: 100;
+        }
+        
+        #waveCannonCharge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 200px;
+            height: 10px;
+            background: #333;
+            border: 1px solid #0af;
+        }
+        
+        #waveCannonBar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00f, #0af, #fff);
+            transition: width 0.1s;
+        }
+        
+        #instructions {
+            position: absolute;
+            bottom: 30px;
+            right: 10px;
+            font-size: 12px;
+            color: #0af;
+            text-align: right;
+        }
+        
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border: 2px solid #f00;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+        
+        #startScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .title {
+            font-size: 48px;
+            color: #0af;
+            text-shadow: 0 0 10px #0af;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: #f80;
+            margin-bottom: 40px;
+        }
+        
+        .controls {
+            margin: 20px 0;
+            color: #0f0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        button {
+            background: #00a;
+            color: #fff;
+            border: 2px solid #0af;
+            padding: 10px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        button:hover {
+            background: #0af;
+            box-shadow: 0 0 10px #0af;
+        }
+        
+        .forceStatus {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            color: #f80;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="hud">
+            <div>SCORE: <span id="score">0000000</span></div>
+            <div>HIGH: <span id="highScore">0000000</span></div>
+            <div>LIVES: <span id="lives">3</span></div>
+            <div>WAVE: <span id="wave">1</span></div>
+        </div>
+        
+        <div id="waveCannonCharge">
+            <div id="waveCannonBar"></div>
+        </div>
+        
+        <div class="forceStatus">
+            FORCE: <span id="forceStatus">ATTACHED (FRONT)</span><br>
+            WEAPON: <span id="forceWeapon">RED LASER</span>
+        </div>
+        
+        <div id="instructions">
+            ARROWS: Move<br>
+            Z: Fire / Charge Wave Cannon<br>
+            X: Launch/Retrieve Force Pod<br>
+            C: Switch Force Weapon<br>
+            P: Pause
+        </div>
+        
+        <div id="startScreen">
+            <div class="title">R-TYPE 1987</div>
+            <div class="subtitle">AUTHENTIC CLONE</div>
+            <div class="controls">
+                <div>CONTROLS:</div>
+                <div>ARROW KEYS - Move ship</div>
+                <div>Z - Fire / Charge Wave Cannon</div>
+                <div>X - Launch/Retrieve Force Pod</div>
+                <div>C - Switch Force Weapon Type</div>
+                <div>P - Pause Game</div>
+            </div>
+            <button id="startButton">START GAME</button>
+        </div>
+        
+        <div id="gameOver">
+            <div class="title">GAME OVER</div>
+            <div>FINAL SCORE: <span id="finalScore">0000000</span></div>
+            <div>WAVE REACHED: <span id="finalWave">1</span></div>
+            <button id="restartButton">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="assets/sprites.js"></script>
+    <script src="assets/sounds.js"></script>
+    <script src="game-final.js"></script>
+</body>
+</html>

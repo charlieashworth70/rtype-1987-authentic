@@ -1,0 +1,31 @@
+{
+  "name": "rtype-1987-authentic",
+  "version": "1.0.0",
+  "description": "Authentic R-Type 1987 arcade clone with exact mechanics",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "open test.html",
+    "deploy": "./deploy.sh"
+  },
+  "keywords": [
+    "r-type",
+    "arcade",
+    "shmup",
+    "shooter",
+    "retro",
+    "game",
+    "1987",
+    "irem"
+  ],
+  "author": "R-Type 1987 Authentic Clone Project",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/rtype-1987-authentic.git"
+  },
+  "homepage": "https://YOUR_USERNAME.github.io/rtype-1987-authentic/",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/rtype-1987-authentic/issues"
+  }
+}
