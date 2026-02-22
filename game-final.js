@@ -1000,7 +1000,7 @@ class RType1987Enhanced {
             this.ctx.fillStyle = particle.color;
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            this            this.ctx.fill();
+            this.ctx.fill();
         }
         
         // Draw enemy bullets
